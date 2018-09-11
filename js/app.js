@@ -3,37 +3,42 @@
 document.getElementById("name").focus();
 
 //Job Role Section:
-//  Include a text field that will be revealed when the "Other" option is selected from the "Job Role" drop down menu.
-// Give the field an id of “other-title,” and add the placeholder text of "Your Job Role".
+//Include a text field that will be revealed when the "Other" option is selected from the "Job Role" drop down menu.
+//Give the field an id of “other-title,” and add the placeholder text of "Your Job Role".
 let jobRole = document.getElementById("title");
 const select = document.querySelector('fieldset');
+const newInput = document.createElement('input');
 
-if(jobRole.value !='other') {
+select.addEventListener('change', (e) => {
 
-		newInput.style.display = 'none';
-		jobRole.onchange = changeEventHandler;
-		function changeEventHandler(event) {
+	console.log(e.target.tagName)
 
-	const newInput = document.createElement('input');
-	console.log(jobRole.value);
-    
-    
-	} else{
-		
+	if(e.target.tagName = 'other'){
+		newInput.style.display = 'block'
 		newInput.id = 'other-title';
 		newInput.placeholder = 'Your Job Role';
 		select.appendChild(newInput);
 
+	} else {
+		newInput.style.display = 'none';
 	}
+});
 
-}
+//For the T-Shirt "Color" menu, only display the color options that match the design selected in the "Design" menu.
+//If the user selects "Theme - JS Puns" then the color menu should only display "Cornflower Blue," "Dark Slate Grey," and "Gold."
+//If the user selects "Theme - I ♥ JS" then the color menu should only display "Tomato," "Steel Blue," and "Dim Grey."
+//When a new theme is selected from the "Design" menu, the "Color" field and drop down menu is updated.
 
 	
+//T-Shirt Section
 
+const shirt = document.getElementById('design');
+const color = document.getElementById('color');
 
+shirt.addEventListener('change', (e) => {
 
-	
+	console.log(shirt.value);
+	console.log(color.value);
+});
 
-
-        
     
