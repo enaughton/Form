@@ -11,16 +11,16 @@ const newInput = document.createElement('input');
 
 select.addEventListener('change', (e) => {
 
-	console.log(e.target.tagName)
-
-	if(e.target.tagName = 'other'){
+	//console.log(select);
+	if(e.target.value === 'other'){
 		newInput.style.display = 'block'
 		newInput.id = 'other-title';
 		newInput.placeholder = 'Your Job Role';
 		select.appendChild(newInput);
 
 	} else {
-		newInput.style.display = 'none';
+		newInput.style.display = 'none';	
+		
 	}
 });
 
