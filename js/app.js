@@ -37,8 +37,23 @@ const color = document.getElementById('color');
 
 shirt.addEventListener('change', (e) => {
 
-	console.log(shirt.value);
-	console.log(color.value);
+	if(e.target.value === 'js puns'){
+		
+		color[3].style.display = 'none';
+		color[4].style.display = 'none';
+		color[5].style.display = 'none';
+	}
+
+	else if(e.target.value === 'heart js'){
+		console.log(e.target.value)
+		color[0].style.display = 'none';
+		color[1].style.display = 'none';
+		color[2].style.display = 'none';
+	}
+	//else{
+		//color.style.display = 'none';
+	//}
+	
 });
 
     
