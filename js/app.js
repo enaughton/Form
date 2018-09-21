@@ -1,5 +1,4 @@
 //On Page Load the Name Field will be In focus
-
 document.getElementById("name").focus();
 
 //Job Role Section:
@@ -93,50 +92,100 @@ shirt.addEventListener('change', (e) => {
 	  			 npm Workshop
 	*/
 	
-
-
 	const activities = document.getElementsByClassName('activities');
-	const check = document.getElementsByName('all');
-	const jsFrame = document.getElementsByName('js-frameworks');
-	const jsLibs = document.getElementsByName('js-libs');
-	const express = document.getElementsByName('express')
-	const node = document.getElementsByName('node')
+	const check = activities[0].children;
+	const box = check[1].children;
 	let total = 0;
-	let price = 0
-
-	console.log(activities);
-	console.log(check)
-
-
-	for (let i = 0; i < activities.length; i++) {
-    activities[i].style.backgroundColor = "red";
-    }
-
-    for(let i = 0; i < check.length; i++){
-    	check.style.backgroundColor = 'blue'
-    }
+	let price = 0;
 	
-	addEventListener('change', (e) => {
 
-			if(check.checked = true){
-				console.log('Main Event');
-				price = 200
-				
-			}
+	check[1].firstChild.addEventListener('change', (e)=> {
+		if(check[1].firstChild.checked){
+			let price = 200;
+		}
+	})		
 
-			if(jsFrame.checked = true){
-				console.log('jsframe');
-				console.log(jsFrame);
-				price = 100
-				
+	check[2].firstChild.addEventListener('change', (e)=> {
+		if(check[2].firstChild.checked ){
+			console.log(check[4].firstChild)
+			check[4].firstChild.disabled = true;
+			let price = 100
+
+		}
+		else {
+			check[4].firstChild.disabled = false;
+			console.log(check[4].firstChild)
+		}
+	})
+
+	check[3].firstChild.addEventListener('change', (e) =>{
+		if(check[3].firstChild.checked){
+			console.log(check[4].firstChild)
+			check[5].firstChild.disabled = true;
+		} 
+		else{
+			check[5].firstChild.disabled = false;
+		}
+
+	})
+
+	check[4].firstChild.addEventListener('change', (e) =>{
+		if(check[4].firstChild.checked){
+			console.log(check[4].firstChild)
+			check[2].firstChild.disabled = true;
+		} 
+		else{
+			check[2].firstChild.disabled = false;
+		}
+
+	})
+
+	check[5].firstChild.addEventListener('change', (e) =>{
+		if(check[5].firstChild.checked){
+			console.log(check[3].firstChild)
+			let price = 100
+			check[3].firstChild.disabled = true;
+		} 
+		else{
+			check[3].firstChild.disabled = false;
+		}
 
 
-			}
+	})
+
+	check[6].firstChild.addEventListener('change', (e)=> {
+		if(check[6].firstChild.checked){
+			let price = 100;
+		}
+	})	
+
+	check[7].firstChild.addEventListener('change', (e)=> {
+		if(check[7].firstChild.checked){
+			let price = 100;
+			console.log('hi');
+		}
+	})	
+
+	
+
+
+
+
+
 
 		
-
-	});
-
+	
+	
 	
 
-	   
+
+
+
+	
+	
+	
+	
+
+
+	
+	   		
