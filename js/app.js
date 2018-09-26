@@ -248,7 +248,8 @@ function eventValid(activities){
 		    	return false;
 			}
 		}
-	})		
+	})	
+}		
 
 function cardValid(credit){		
 	button.addEventListener('click', function(e){
@@ -273,6 +274,7 @@ function cardValid(credit){
 		}
 	})
 }	
+
 
 	validName(name);
 	emailValid(email);
