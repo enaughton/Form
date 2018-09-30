@@ -273,7 +273,7 @@ function eventValid(activities){
 		        event.style.display = 'none'
 		       	break
 		      
-		      } else if(check[i].firstChild.checked === false) {
+		      } else if(check[i].checked === false) {
 		      	e.preventDefault()
 		      	event.style.display = ''
 		        event.innerHTML = ' Please select an Event'
