@@ -186,13 +186,10 @@ const cardNum = document.getElementById('cc-num');
 const zip = document.getElementById('zip');
 const cvv = document.getElementById('cvv');
 
-	payment.value = 'credit card'
-	p[0].style.display = 'none'
-	p[1].style.display = 'none'
-	credit.style.display = ''
+payment.value === 'credit card'
 		
 	payment.addEventListener('change', (e) =>{
-		if(e.target.value === 'credit-card'){
+		if(e.target.value === 'credit card'){
 			credit.style.display = ''
 			p[0].style.display = 'none';
 			p[1].style.display = 'none';
@@ -261,7 +258,7 @@ function emailValid (email) {
 	})
 }	
 
-
+/*
 function eventValid(activities){
 
 	button.addEventListener('click', function(e){
@@ -269,7 +266,7 @@ function eventValid(activities){
 		for(let i = 1; i < check.length; i++) {
 		
 
-			if(check[i].firstChild.checked === true) {		  
+			if(check[i].checked === true) {		  
 		        event.style.display = 'none'
 		       	break
 		      
@@ -282,7 +279,26 @@ function eventValid(activities){
 		}
 	})	
 }	
-			
+	*/
+	function eventValid(activities) {
+  		button.addEventListener('click', function(e) {
+    		let checked = false;
+		    for (let i = 1; i < check.length; i++) {
+		      	checked = check[i].firstChild.checked || checked;
+		      	if (check[i].firstChild.checked === true) {
+		        event.style.display = 'none';
+		        break;
+		      } 
+		    } //If no Checkboxes are Selected, The Form will not refresh. 
+		    
+		    if (!checked) {
+		    	event.style.display = '';
+		        event.innerHTML = ' Please select an Event';
+		        event.style.color = 'red';
+		      	e.preventDefault();
+		      }
+		  });
+		}		
 
 						
 function cardValid(credit){		
