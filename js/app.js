@@ -212,9 +212,15 @@ const button = document.querySelector('button')
 const name = document.getElementById('name');
 const email = document.getElementById('mail');
 const event = document.createElement('span');
+const cardSpan = document.createElement('span');
+const zipSpan = document.createElement('span');
+const cvvSpan = document.createElement('span');
 		check[0].appendChild(event)
 		event.innerHTML = "Please Select an Event"
 		event.style.display = 'none'
+
+
+
 		
 
 
@@ -225,6 +231,8 @@ function validName (name) {
 		if(name.value === ''){
 			e.preventDefault()
 			name.style.borderColor = 'red'
+		} else {
+			name.style.borderColor = ''
 		}
 	})
 }	
@@ -235,6 +243,8 @@ function emailValid (email) {
 		if(email.value.includes('^\w+$' &&'@' && '.') === false){
 			e.preventDefault();
 			email.style.borderColor = 'red'
+		} else {
+			email.style.borderColor = ''
 		}
 	})
 }	
@@ -271,25 +281,33 @@ function cardValid(credit){
 		if(payment.value ==='credit card'){
 			
 			if(/^\d{16}$/.test(cardNum.value)){
+				cardNum.style.borderColor = ''
 			
 			} else{
 				e.preventDefault();
+				cardNum.placeholder = 'Enter a 13 to 16 Digit Number'
 				cardNum.style.borderColor = 'red'
+				
 
 			}
 			if(/^\d{5}$/.test(zip.value)){
+				cardNum.style.borderColor = ''
 
 			} else{
 				e.preventDefault();
+				zip.placeholder = 'Enter a 5 Digit Number'
 				zip.style.borderColor = 'red'
-		}
-	}
+			}
+	
 			if(/^\d{3}/.test(cvv.value)){
+				cardNum.style.borderColor = ''
 			
 			} else {
 				e.preventDefault();
+				cvv.placeholder = 'Enter a 3 Digit Number'
 				cvv.style.borderColor = 'red'
-		}
+			}
+		}	
 	})
 }	
 
