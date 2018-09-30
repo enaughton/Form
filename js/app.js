@@ -186,7 +186,9 @@ const cardNum = document.getElementById('cc-num');
 const zip = document.getElementById('zip');
 const cvv = document.getElementById('cvv');
 
-payment.value === 'credit card'
+payment.value = 'credit card'
+p[0].style.display = 'none'
+p[1].style.display = 'none'
 		
 	payment.addEventListener('change', (e) =>{
 		if(e.target.value === 'credit card'){
@@ -240,6 +242,7 @@ function validName (name) {
 		if(name.value === ''){
 			e.preventDefault()
 			name.style.borderColor = 'red'
+			name.placeholder = 'Enter Name'
 		} else {
 			name.style.borderColor = ''
 		}
@@ -252,6 +255,7 @@ function emailValid (email) {
 		if(email.value.includes('^\w+$' &&'@' && '.') === false){
 			e.preventDefault();
 			email.style.borderColor = 'red'
+			email.placeholder = 'Enter Email'
 		} else {
 			email.style.borderColor = ''
 		}
