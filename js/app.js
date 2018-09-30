@@ -153,12 +153,24 @@ shirt.addEventListener('change', (e) => {
 
 	activities[0].addEventListener('change', (e) => {
 	for(let i = 1; i < check.length; i++){
+
+		
 		check[7].appendChild(div);
 		div.className = 'total';
+		if(total === 0){
+			head.style.display = 'none'
+		}
+		else{
+
+		head.style.display = ''	
 		div.appendChild(head)
 		head.innerHTML = 'Your Total is ' + total;
+		
+		}
 	}
 });
+
+
 
 	
 //PayMent Methods:
@@ -174,13 +186,13 @@ const cardNum = document.getElementById('cc-num');
 const zip = document.getElementById('zip');
 const cvv = document.getElementById('cvv');
 
-	payment.value = 'select_method'
+	payment.value = 'credit card'
 	p[0].style.display = 'none'
 	p[1].style.display = 'none'
-	credit.style.display = 'none'
+	credit.style.display = ''
 		
 	payment.addEventListener('change', (e) =>{
-		if(e.target.value === 'credit card'){
+		if(e.target.value === 'credit-card'){
 			credit.style.display = ''
 			p[0].style.display = 'none';
 			p[1].style.display = 'none';
@@ -262,6 +274,7 @@ function eventValid(activities){
 		       	break
 		      
 		      } else if(check[i].firstChild.checked === false) {
+		      	e.preventDefault()
 		      	event.style.display = ''
 		        event.innerHTML = ' Please select an Event'
 		    	event.style.color = 'red'
@@ -288,7 +301,7 @@ function cardValid(credit){
 
 			}
 			if(/^\d{5}$/.test(zip.value)){
-				cardNum.style.borderColor = ''
+				zip.style.borderColor = ''
 
 			} else{
 				e.preventDefault();
@@ -297,7 +310,7 @@ function cardValid(credit){
 			}
 	
 			if(/^\d{3}/.test(cvv.value)){
-				cardNum.style.borderColor = ''
+				cvv.style.borderColor = ''
 			
 			} else {
 				e.preventDefault();
