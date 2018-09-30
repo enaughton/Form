@@ -13,7 +13,7 @@ newInput.style.display = 'none'
 
 select.addEventListener('change', (e) => {
 
-	//console.log(select);
+	
 	if(e.target.value === 'other'){
 		newInput.style.display = ''
 	
@@ -184,7 +184,7 @@ const cvv = document.getElementById('cvv');
 			credit.style.display = ''
 			p[0].style.display = 'none';
 			p[1].style.display = 'none';
-			console.log(p[1])
+			
 		} else if(e.target.value === 'paypal'){
 
 			credit.style.display = 'none'
@@ -255,17 +255,14 @@ function eventValid(activities){
 	button.addEventListener('click', function(e){
 	
 		for(let i = 1; i < check.length; i++) {
-			console.log(i)
 		
 
-			if(check[i].firstChild.checked === true) {
-				console.log(true)		  
+			if(check[i].firstChild.checked === true) {		  
 		        event.style.display = 'none'
 		       	break
 		      
 		      } else if(check[i].firstChild.checked === false) {
-		      			      	    
-		    	event.style.display = ''
+		      	event.style.display = ''
 		        event.innerHTML = ' Please select an Event'
 		    	event.style.color = 'red'
 		    }
@@ -285,7 +282,7 @@ function cardValid(credit){
 			
 			} else{
 				e.preventDefault();
-				cardNum.placeholder = 'Enter a 13 to 16 Digit Number'
+				cardNum.placeholder = '13 to 16 Digit Number'
 				cardNum.style.borderColor = 'red'
 				
 
@@ -295,7 +292,7 @@ function cardValid(credit){
 
 			} else{
 				e.preventDefault();
-				zip.placeholder = 'Enter a 5 Digit Number'
+				zip.placeholder = '5 Digit Number'
 				zip.style.borderColor = 'red'
 			}
 	
@@ -304,7 +301,7 @@ function cardValid(credit){
 			
 			} else {
 				e.preventDefault();
-				cvv.placeholder = 'Enter a 3 Digit Number'
+				cvv.placeholder = '3 Digit Number'
 				cvv.style.borderColor = 'red'
 			}
 		}	
