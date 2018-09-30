@@ -74,10 +74,10 @@ shirt.addEventListener('change', (e) => {
 	
 	check[1].firstChild.addEventListener('change', (e)=> {
 		if(check[1].firstChild.checked){
-			 total = main;
-			 total;
+			 total += 200;
+			 
 		} else {
-			total = 0;
+			total = total - 200;
 		}
 	})		
 
@@ -160,6 +160,7 @@ shirt.addEventListener('change', (e) => {
 	}
 });
 
+	
 //PayMent Methods:
 //If Credit Card Method: Selected (Credit Card Form will Appear)
 //If PayPal Method: Selected (PayPal Message will Appear)
@@ -210,6 +211,13 @@ const cvv = document.getElementById('cvv');
 const button = document.querySelector('button')
 const name = document.getElementById('name');
 const email = document.getElementById('mail');
+const event = document.createElement('span');
+		check[0].appendChild(event)
+		event.innerHTML = "Please Select an Event"
+		event.style.display = 'none'
+		
+
+
 
 function validName (name) {
 
@@ -231,26 +239,32 @@ function emailValid (email) {
 	})
 }	
 
+
 function eventValid(activities){
 
 	button.addEventListener('click', function(e){
-		
-    var flag = false;
 	
-		for(var i = 1; i < check.length; i++) {
-			if(check[i].firstChild.checked) {
-		       	console.log(true)
-		        flag = true;
+		for(let i = 1; i < check.length; i++) {
+			console.log(i)
+		
+
+			if(check[i].firstChild.checked === true) {
+				console.log(true)		  
+		        event.style.display = 'none'
+		       	break
+		      
+		      } else if(check[i].firstChild.checked === false) {
+		      			      	    
+		    	event.style.display = ''
+		        event.innerHTML = ' Please select an Event'
+		    	event.style.color = 'red'
 		    }
-		 	if(!flag){
-		    	alert("Please check at least one ");
-		    	console.log(false)
-		    	return false;
-			}
 		}
 	})	
-}		
+}	
+			
 
+						
 function cardValid(credit){		
 	button.addEventListener('click', function(e){
 		
@@ -260,17 +274,21 @@ function cardValid(credit){
 			
 			} else{
 				e.preventDefault();
+				cardNum.style.borderColor = 'red'
+
 			}
 			if(/^\d{5}$/.test(zip.value)){
 
 			} else{
 				e.preventDefault();
+				zip.style.borderColor = 'red'
 		}
 	}
 			if(/^\d{3}/.test(cvv.value)){
 			
 			} else {
-			e.preventDefault();
+				e.preventDefault();
+				cvv.style.borderColor = 'red'
 		}
 	})
 }	
